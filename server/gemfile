@@ -1,0 +1,7 @@
+source 'https://rubygems.org'
+
+gem 'sinatra'
+gem 'slim'
+gem 'sqlite3' # <--- spökar med installation
+# gem 'wdm' # <--- inte kompatibel
+# gem 'rerun' # <--- inte kompatibel

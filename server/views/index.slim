@@ -1,0 +1,49 @@
+doctype html
+html lang="en" 
+  head
+    meta charset="UTF-8" 
+    meta content="width=device-width, initial-scale=1.0" name="viewport" 
+    title Dynamic/Server
+    link href="css/main.css" rel="stylesheet" 
+  body
+    h2
+      | click on:
+    #target
+    -for student in @students
+        - onclick_string = '{"id":"' + "#{student['id']}" + '","name":"' + "#{student['name']}"+ '"}'
+        .card id="#{student['id']}" onclick="is_correct(#{onclick_string})" 
+            p #{student['name']}
+            img src="#{student['img_path']}" alt=""
+        form action="/remove_student" method="post"
+            input type="hidden" name="id" value="#{student['id']}"
+            button type="submit" = "remove #{student['name']}"
+
+    button#targetgetter onclick="get_target()"  get new target
+    button#resetbttn onclick="reset()"  reset
+    / button#testbttn onclick="test()"  test JS
+    / form action="/test" method="post"
+    /     input type="file" name="image"
+    /     button type="submit" test ruby
+
+    form action="/add_student" method="post" enctype="multipart/form-data"
+                    
+                    input type="text" name="name" value="name"
+                    input type="file" name="image"
+                    / input type="text" name="path" value="NYI"
+                    button type="submit" upload
+
+    / h1 troublepewpew
+    / table
+    /     -for student in @students 
+    /         thead
+    /             th
+    /                 td dood
+    /         tbody
+    /             tr
+    /                 td = "name: #{student['name']}"
+    /             tr
+    /                 td = "id: #{student['id']}"
+    /             tr
+    /                 td = "image path: #{student['img_path']}"
+
+    script src="js/main.js" 

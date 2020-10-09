@@ -1,0 +1,68 @@
+body {
+
+    background-color: whitesmoke;
+
+    margin: 0;
+
+}
+
+#target {
+
+font-size: 3rem;
+
+}
+
+.card {
+
+    height: 100px;
+    width: 100px;
+
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+
+    background-color: brown;
+
+    margin: 5px;
+
+}
+
+.correct{
+
+    background-color: seagreen;
+
+}
+
+.wrong100{
+
+    background-color: rgb(255, 0, 0);
+
+}
+
+.wrong66{
+
+    background-color: rgba(255, 75, 75);
+
+}
+
+.wrong33{
+
+    background-color: rgb(255, 150, 150);
+
+}
+
+.card p{
+
+    max-height: 0;
+    max-width: 0;
+    margin: 0;
+    visibility: hidden;
+
+}
+
+img {
+
+    max-width: 100%;
+    max-height: 100%;
+
+}
