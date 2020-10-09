@@ -12,7 +12,9 @@ class Main < Sinatra::Base
 
     end
 
-    post '/test' do
+    get '/test' do
+
+        DBhandler.testmethod()
 
         redirect '/'
 

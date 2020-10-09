@@ -145,7 +145,11 @@ class DBhandler
 
     def self.testmethod
 
-        # FileUtils.mkdir_p "public/img/test"
+        puts "#====TEST_START====#"
+        puts ''
+        p "hello"
+        puts ''
+        puts "#=====TEST_END=====#"
         
     end
 
