@@ -151,59 +151,62 @@ class DBhandler
 
 end
 
-class Student < DBhandler
 
-    @table_name = "students"
-    @column_names = ["id", "name", "img_path"]
+# Temporary: Exists as example for usage
+# Will be removed
+# class Student < DBhandler
 
-    def self.add(&blk)
+#     @table_name = "students"
+#     @column_names = ["id", "name", "img_path"]
 
-        input = yield
+#     def self.add(&blk)
+
+#         input = yield
         
-        array = [input[:student], "wait"]
+#         array = [input[:student], "wait"]
 
-        insert do {:insertion => Input.array_to_hash(array, @column_names)} end
+#         insert do {:insertion => Input.array_to_hash(array, @column_names)} end
         
-        id = get do {:columns => "id", :fragment => "ORDER BY id DESC LIMIT 1"} end.first["id"]
+#         id = get do {:columns => "id", :fragment => "ORDER BY id DESC LIMIT 1"} end.first["id"]
         
-        FileUtils.mkdir_p "public/img/#{id}"
+#         FileUtils.mkdir_p "public/img/#{id}"
 
-        # if input[:image] && input[:image][:filename]
+#         # if input[:image] && input[:image][:filename]
 
-        #     filename = input[:image][:filename]
+#         #     filename = input[:image][:filename]
 
-        #     file = input[:image][:tempfile]
+#         #     file = input[:image][:tempfile]
 
-        #     path = "./public/img/#{id}/#{filename}"
+#         #     path = "./public/img/#{id}/#{filename}"
         
-        #     File.open(path, 'wb') do |f|
+#         #     File.open(path, 'wb') do |f|
 
-        #         f.write(file.read)
+#         #         f.write(file.read)
                 
-        #     end
+#         #     end
 
-        # end
+#         # end
 
-        return id
+#         return id
 
-    end
+#     end
 
-    def self.update_path(&blk)
+#     def self.update_path(&blk)
 
-        input = yield
+#         input = yield
 
-        update do {:columns => ["img_path"], :values => [input[:path]], :where => "id", :condition => input[:id]} end
+#         update do {:columns => ["img_path"], :values => [input[:path]], :where => "id", :condition => input[:id]} end
 
-    end
+#     end
 
-    def self.remove(&blk)
+#     def self.remove(&blk)
 
-        input = yield
+#         input = yield
 
-        remove_row do {:where => "id", :condition => input[:id]} end
+#         remove_row do {:where => "id", :condition => input[:id]} end
 
-        FileUtils.remove_dir("public/img/#{input[:id]}")
+#         FileUtils.remove_dir("public/img/#{input[:id]}")
         
-    end
+#     end
 
-end
+# end
