@@ -3,7 +3,32 @@ html lang="en"
   head
     meta charset="UTF-8" 
     meta content="width=device-width, initial-scale=1.0" name="viewport" 
+    link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet"
+    link href="https://fonts.googleapis.com/css2?family=Contrail+One&display=swap" rel="stylesheet"
+
     title DiStats
     link href="css/main.css" rel="stylesheet" 
   body
-    script src="js/main.js" 
+    .wrapper
+      header
+        h1.racingSansOneCursive DiStats
+      .content
+        .diceStack.border
+         ul#diceStack1
+        .comparison
+          header.border
+            h2.contrailOneCursive Comparison
+          br
+          .data.border
+        .diceStack.border
+          ul#diceStack2
+  
+template#dieTemplate
+  li.die
+    img src="img/nazir.gif"
+
+template#addDieButtonTemplate
+  li.addDie
+    button +
+    
+script src="js/main.js" 
